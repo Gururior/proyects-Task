@@ -1,6 +1,6 @@
 export class CreateTaskDto {
-   
-    description: string;
-    completed: boolean;
-  }
-  
+  name: string;
+  description: string;
+  completed: boolean;
+  projectId: number;
+}

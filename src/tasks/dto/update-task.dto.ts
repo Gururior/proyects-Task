@@ -3,6 +3,8 @@ import { CreateTaskDto } from './create-task.dto';
 
 export class UpdateTaskDto extends PartialType(CreateTaskDto) {
     
+    name?: string;
     description?: string;
-    date?: Date
+    completed?: boolean;
+    projectId?: number;
 }

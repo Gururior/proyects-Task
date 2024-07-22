@@ -8,7 +8,7 @@ CREATE TABLE "Project" (
     "description" VARCHAR(512),
     "status" "Status" NOT NULL DEFAULT 'PENDING',
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "updateAt" TIMESTAMP(3) NOT NULL,
+    "updatedAt" TIMESTAMP(3),
 
     CONSTRAINT "Project_pkey" PRIMARY KEY ("id")
 );
@@ -21,7 +21,7 @@ CREATE TABLE "Task" (
     "completed" BOOLEAN NOT NULL,
     "projectId" INTEGER NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "updateAt" TIMESTAMP(3) NOT NULL,
+    "updatedAt" TIMESTAMP(3),
 
     CONSTRAINT "Task_pkey" PRIMARY KEY ("id")
 );
