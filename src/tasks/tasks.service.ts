@@ -4,12 +4,9 @@ import { UpdateTaskDto } from './dto/update-task.dto';
 import { PrismaService } from './prisma.service';
 import { Prisma, Task } from '@prisma/client';
 
-
-
-
 @Injectable()
 export class TasksService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(private prisma: PrismaService) {}
 
   async createTask(taskData: Prisma.TaskCreateInput): Promise<Task> {
     return this.prisma.task.create({
@@ -21,14 +18,13 @@ export class TasksService {
     return this.prisma.task.findMany();
   }
 
-  
   async findOne(id: number): Promise<Task> {
     const task = await this.prisma.task.findUnique({
       where: { id },
     });
 
     if (!task) {
-      throw new NotFoundException(`La tarea con la ${id} id no se encontro`);
+      throw new NotFoundException(`No se encontró la tarea con el ID ${id}.`);
     }
 
     return task;

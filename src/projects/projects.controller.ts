@@ -2,6 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, ParseIntPipe } from 
 import { ProjectsService } from './projects.service';
 import { CreateProjectDto } from './dto/create-project.dto';
 import { UpdateProjectDto } from './dto/update-project.dto';
+import { Prisma } from '@prisma/client';
 
 @Controller('projects')
 export class ProjectsController {
@@ -24,7 +25,7 @@ export class ProjectsController {
 
   @Patch(':id')
   update(@Param('id', ParseIntPipe) id: number, @Body() updateProjectDto: UpdateProjectDto) {
-    return this.projectsService.update(id, updateProjectDto);
+    return this.projectsService.update(id, updateProjectDto as any);
   }
 
   @Delete(':id')
