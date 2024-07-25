@@ -11,6 +11,7 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 
 
@@ -45,4 +46,13 @@ model Task {
 
   createdAt DateTime @default(now())
   updatedAt DateTime?
+}
+
+model User {
+  id       Int      @id @default(autoincrement())
+  username String   @unique
+  email    String   @unique
+  password String   @db.VarChar(255)
+  name     String   @db.VarChar(50)
+  active   Boolean  @default(true)
 }
